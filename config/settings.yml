@@ -1,4 +1,10 @@
 saml:
+  saml_button_title:
+    default: "with SAML"
+    area: "saml"
+  saml_provider2_button_title:
+    default: "with SAML Provider 2"
+    area: "saml"
   saml_enabled:
     default: false
     area: "saml"
