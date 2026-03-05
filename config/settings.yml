@@ -22,11 +22,7 @@ saml:
     area: "saml"
   saml_cert_fingerprint_algorithm:
     type: enum
-    saml_cert:
-      default: ""
-      textarea: true
-      area: "saml"
-
+    
   # SAML Provider 2
   saml_provider2_target_url:
     default: ""
@@ -37,9 +33,6 @@ saml:
   saml_provider2_cert:
     default: ""
     textarea: true
-    area: "saml"
-      - SHA384
-      - SHA512
     area: "saml"
   saml_cert_multi:
     default: ""
