@@ -39,7 +39,7 @@ fr:
     saml_auto_create_account: Passer la fenêtre d'inscription lors de la création d'un compte SAML
 
     saml_sync_groups: Synchroniser les groupes SAML avec Discourse
-    saml_groups_fullsync: Les groupes attribués doivent-ils être complètement synchronisés (ajout ET suppression) selon le fournisseur d'identité ? Par défaut à false. Si true, `saml_sync_groups_list` et les attributs SAML `groups_to_add`/`groups_to_remove` ne sont pas utilisés.
+    saml_groups_fullsync: Les groupes attribués doivent ils être complètement synchronisés (ajout ET suppression) selon le fournisseur d'identité ? Par défaut à false. Si true, `saml_sync_groups_list` et les attributs SAML `groups_to_add`/`groups_to_remove` ne sont pas utilisés.
     saml_groups_attribute: Attribut SAML contenant les noms de groupes
     saml_groups_ldap_leafcn: Si votre fournisseur transmet `cn=nomgroupe,cn=groups,dc=exemple,dc=com`, activez pour n'utiliser que `nomgroupe`. Utile pour respecter la longueur standard des groupes Discourse (20 caractères).
     saml_sync_groups_list: Si renseigné, seuls ces groupes Discourse seront gérés par SAML. Si vide, tous les groupes_to_add/groups_to_remove sont utilisés.
