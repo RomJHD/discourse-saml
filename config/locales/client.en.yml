@@ -3,8 +3,8 @@ en:
     login:
       saml:
         name: "SAML"
-        title: with SAML
-        provider2_title: with SAML Provider 2
+        title: "with SAML"
+        provider2_title: "with SAML Provider 2"
   admin_js:
     admin:
       site_settings:
