@@ -122,6 +122,6 @@ auth_provider icon_setting: :saml_icon,
 
 # Register second SAML provider
 auth_provider icon_setting: :saml_icon,
-              title: "SAML Provider 2",
-              pretty_name: "SAML Provider 2",
+              title: "Connectez-vous avec votre compte OVHcloud - Canada ",
+              pretty_name: "Connectez-vous avec votre compte OVHcloud - Canada ",
               authenticator: SamlAuthenticator.new.tap { |a| a.define_singleton_method(:name) { "saml_provider2" } }
