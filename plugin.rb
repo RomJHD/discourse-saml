@@ -119,3 +119,9 @@ auth_provider icon_setting: :saml_icon,
               title: button_title,
               pretty_name: name,
               authenticator: SamlAuthenticator.new
+
+# Register second SAML provider
+auth_provider icon_setting: :saml_icon,
+              title: "SAML Provider 2",
+              pretty_name: "SAML Provider 2",
+              authenticator: SamlAuthenticator.new.tap { |a| a.define_singleton_method(:name) { "saml_provider2" } }
