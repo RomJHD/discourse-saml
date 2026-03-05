@@ -2,6 +2,9 @@ en:
   login:
     use_saml_auth: "Please use the company SSO to login with your account."
   site_settings:
+    saml_provider2_target_url: Target URL of SAML Provider 2
+    saml_provider2_slo_target_url: SAML Provider 2 Single Log Out URL
+    saml_provider2_cert: SAML Provider 2 X.509 certificate
     saml_enabled: Enable SAML authentication
 
     saml_target_url: Target URL of the SAML Identity Provider (required)
