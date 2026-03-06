@@ -111,11 +111,12 @@ require_relative "lib/discourse_saml/saml_replay_cache"
 require_relative "lib/saml_authenticator"
 
 # Allow GlobalSettings to override the translations
-# If the global settings are not provided, will use the `js.login.saml.name` and `js.login.saml.title` translations
+# If the global settings are not provided, will use the `js.login.saml.title` and `js.login.saml.provider2Title` translations
+# Note: auth_provider automatically prefixes title keys with "js.login." on the client-side
 
 name = GlobalSetting.try(:saml_title)
-button_title = GlobalSetting.try(:saml_button_title) || GlobalSetting.try(:saml_title) || I18n.t("login.saml.title")
-button_title2 = GlobalSetting.try(:saml_button_title) || GlobalSetting.try(:saml_title) || I18n.t("login.saml.provider2_title")
+button_title = GlobalSetting.try(:saml_button_title) || GlobalSetting.try(:saml_title) || "saml.title"
+button_title2 = GlobalSetting.try(:saml_provider2_button_title) || GlobalSetting.try(:saml_provider2_title) || "saml.provider2Title"
 
 auth_provider icon_setting: :saml_icon,
               title: button_title,
