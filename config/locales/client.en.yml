@@ -3,13 +3,13 @@ en:
     login:
       saml:
         name: "SAML"
-        title: with SAML
-        provider2Title: with SAML Provider 2
+        title: "with SAML"
+        provider2Title: "with SAML Provider 2"
   admin_js:
     admin:
       site_settings:
         categories:
-          saml: SAML
+          saml: "SAML"
       config:
         login:
           sub_pages:
