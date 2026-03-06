@@ -27,7 +27,7 @@ en:
     saml_logout_responses_signed: Activer la signature des réponses de déconnexion initiées par le fournisseur d'identité
 
     saml_request_attributes: Liste d'attributs supplémentaires à récupérer auprès du fournisseur de service. `email`, `name`, `first_name` et `last_name` sont toujours récupérés.
-    saml_attribute_statements: Mappages personnalisés des champs vers leurs attributs SAML sources. Format : `champ:attributSAML1,attributSAML2`.
+    saml_attribute_statements: "Mappages personnalisés des champs vers leurs attributs SAML sources. Format : `champ:attributSAML1,attributSAML2`."
     saml_use_attributes_uid: Utiliser l'attribut 'uid' comme identifiant unique de l'utilisateur au lieu du champ `name_id` par défaut.
 
     saml_skip_email_validation: Ignorer la validation syntaxique des emails du fournisseur d'identité SAML
