@@ -114,8 +114,8 @@ require_relative "lib/saml_authenticator"
 # If the global settings are not provided, will use the `js.login.saml.name` and `js.login.saml.title` translations
 
 name = GlobalSetting.try(:saml_title)
-button_title = GlobalSetting.try(:saml_button_title) || GlobalSetting.try(:saml_title) || I18n.t("js.login.saml.title")
-button_title2 = GlobalSetting.try(:saml_button_title) || GlobalSetting.try(:saml_title) || I18n.t("js.login.saml.provider2Title")
+button_title = GlobalSetting.try(:saml_button_title) || GlobalSetting.try(:saml_title) || I18n.t("login.saml.title")
+button_title2 = GlobalSetting.try(:saml_button_title) || GlobalSetting.try(:saml_title) || I18n.t("login.saml.provider2_title")
 
 auth_provider icon_setting: :saml_icon,
               title: button_title,

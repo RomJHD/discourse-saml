@@ -1,6 +1,9 @@
 fr:
   login:
     use_saml_auth: "Veuillez utiliser le SSO de l'entreprise pour vous connecter à votre compte."
+    saml:
+      title: "Connectez vous avec votre compte OVHcloud Europe"
+      provider2_title: "Connectez vous avec votre compte OVHcloud Canada"
   site_settings:
     saml_provider2_target_url: "URL cible du fournisseur SAML 2"
     saml_button_title: "Titre du bouton de connexion SAML (Fournisseur 1)"

@@ -1,6 +1,9 @@
 en:
   login:
     use_saml_auth: "Please use the company SSO to login with your account."
+    saml:
+      title: "with SAML"
+      provider2_title: "with SAML Provider 2"
   site_settings:
     saml_provider2_target_url: "Target URL of SAML Provider 2"
     saml_button_title: "Title for the SAML login button (Provider 1)"
