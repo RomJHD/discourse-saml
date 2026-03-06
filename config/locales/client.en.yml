@@ -3,8 +3,8 @@ en:
     login:
       saml:
         name: "SAML"
-        title: Connectez vous avec votre compte OVHcloud Europe
-        provider2Title: Connectez vous avec votre compte OVHcloud Canada
+        title: with SAML
+        provider2Title: with SAML Provider 2
   admin_js:
     admin:
       site_settings:

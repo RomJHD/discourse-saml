@@ -1,0 +1,69 @@
+fr:
+  login:
+    use_saml_auth: "Veuillez utiliser le SSO de l'entreprise pour vous connecter à votre compte."
+  site_settings:
+    saml_provider2_target_url: URL cible du fournisseur SAML 2
+    saml_provider2_slo_target_url: URL de déconnexion SAML 2
+    saml_provider2_cert: Certificat X.509 du fournisseur SAML 2
+    saml_enabled: Activer l'authentification SAML
+
+    saml_target_url: URL cible du fournisseur d'identité SAML (obligatoire)
+    saml_slo_target_url: URL de déconnexion SAML
+
+  saml_name_identifier_format: "Si renseigné, demande un format spécifique de NameID (UID) au fournisseur d'identité."
+
+  saml_cert: "Certificat public X.509 du fournisseur d'identité SAML (ceci ou saml_cert_fingerprint est requis)"
+  saml_cert_fingerprint: "Empreinte du certificat public X.509 du fournisseur d'identité SAML (ceci ou `saml_cert` est requis)"
+  saml_cert_fingerprint_algorithm: "Algorithme utilisé pour l'empreinte du certificat SAML"
+  saml_cert_multi: "Certificat X.509 secondaire du fournisseur d'identité SAML. Utile lors des rotations de certificats"
+
+  saml_request_method: "Méthode HTTP utilisée pour diriger l'utilisateur vers le fournisseur d'identité"
+
+  saml_sp_certificate: "Certificat X.509 du fournisseur de service SAML. Utilisé pour signer les messages si activé via les paramètres `saml_*_signed`"
+  saml_sp_private_key: "Clé privée X.509 du fournisseur de service SAML. Utilisée pour signer les messages si activé via les paramètres `saml_*_signed`"
+  saml_authn_requests_signed: "Activer la signature des requêtes AuthN par le fournisseur de service"
+  saml_want_assertions_signed: "Activer la signature des assertions par le fournisseur de service"
+  saml_logout_requests_signed: "Activer la signature des déconnexions initiées par le fournisseur de service"
+  saml_logout_responses_signed: "Activer la signature des réponses de déconnexion initiées par le fournisseur d'identité"
+
+  saml_request_attributes: "Liste d'attributs supplémentaires à récupérer auprès du fournisseur de service. `email`, `name`, `first_name` et `last_name` sont toujours récupérés."
+  saml_attribute_statements: "Mappages personnalisés des champs vers leurs attributs SAML sources. Format : `champ:attributSAML1,attributSAML2`."
+  saml_use_attributes_uid: "Utiliser l'attribut 'uid' comme identifiant unique de l'utilisateur au lieu du champ `name_id` par défaut."
+
+  saml_skip_email_validation: "Ignorer la validation syntaxique des emails du fournisseur d'identité SAML"
+  saml_validate_email_fields: "Si une de ces valeurs est présente dans l'attribut `memberOf`, l'email est considéré comme valide/vérifié"
+  saml_default_emails_valid: "Considérer les emails SAML comme vérifiés ? Attention : ne mettre à `true` que si vous faites confiance au fournisseur d'identité pour vérifier la propriété des emails"
+
+  saml_clear_username: "Ignorer le nom d'utilisateur du résultat SAML"
+  saml_omit_username: "Empêcher l'utilisateur de modifier le nom d'utilisateur SAML lors de l'inscription"
+  saml_auto_create_account: "Passer la fenêtre d'inscription lors de la création d'un compte SAML"
+
+  saml_sync_groups: "Synchroniser les groupes SAML avec Discourse"
+  saml_groups_fullsync: "Les groupes attribués doivent ils être complètement synchronisés (ajout ET suppression) selon le fournisseur d'identité ? Par défaut à false. Si true, `saml_sync_groups_list` et les attributs SAML `groups_to_add`/`groups_to_remove` ne sont pas utilisés."
+  saml_groups_attribute: "Attribut SAML contenant les noms de groupes"
+  saml_groups_ldap_leafcn: "Si votre fournisseur transmet `cn=nomgroupe,cn=groups,dc=exemple,dc=com`, activez pour n'utiliser que `nomgroupe`. Utile pour respecter la longueur standard des groupes Discourse (20 caractères)."
+  saml_sync_groups_list: "Si renseigné, seuls ces groupes Discourse seront gérés par SAML. Si vide, tous les groupes_to_add/groups_to_remove sont utilisés."
+
+  saml_user_field_statements: "Si renseigné, les champs utilisateur seront définis selon les attributs SAML. Format : `nom_attribut_saml:id_champ_discourse`"
+
+  saml_sync_email: "À chaque connexion, remplacer l'email de l'utilisateur par la valeur SAML. Fonctionne comme le paramètre `auth_overrides_email`, mais spécifique à SAML."
+
+  saml_sync_moderator: "Synchroniser le statut modérateur depuis le résultat SAML ?"
+  saml_moderator_attribute: "Attribut SAML contenant le booléen modérateur"
+  saml_sync_admin: "Synchroniser le statut administrateur depuis le résultat SAML ?"
+  saml_admin_attribute: "Attribut SAML contenant le booléen administrateur"
+
+  saml_sync_trust_level: "Définir le niveau de confiance utilisateur depuis le résultat SAML"
+  saml_trust_level_attribute: "Attribut SAML contenant le niveau de confiance (entier)"
+
+  saml_sync_locale: "Définir la langue utilisateur depuis le résultat SAML"
+  saml_locale_attribute: "Attribut SAML contenant le nom de la langue"
+
+  saml_forced_domains: Les utilisateurs avec une adresse email sur ces domaines devront utiliser le flux SAML. Ils seront bloqués des autres méthodes de connexion.
+
+  saml_log_auth: Stocker les données brutes d'authentification dans la table `plugin_store_rows` de la base de données.
+  saml_debug_auth: Activer les logs de debug dans `/logs`
+  saml_base_url: Remplacer l'URL de base du fournisseur de service. Par défaut, l'URL du forum.
+
+  saml_can_connect_existing_user: Autoriser les utilisateurs à connecter manuellement leur compte SAML
+  saml_can_revoke: Autoriser les utilisateurs à révoquer manuellement leur compte SAML connecté

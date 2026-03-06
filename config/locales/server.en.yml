@@ -1,69 +1,69 @@
 en:
   login:
-    use_saml_auth: "Veuillez utiliser le SSO de l'entreprise pour vous connecter à votre compte."
+    use_saml_auth: "Please use the company SSO to login with your account."
   site_settings:
-    saml_provider2_target_url: URL cible du fournisseur SAML 2
-    saml_provider2_slo_target_url: URL de déconnexion SAML 2
-    saml_provider2_cert: Certificat X.509 du fournisseur SAML 2
-    saml_enabled: Activer l'authentification SAML
+    saml_provider2_target_url: Target URL of SAML Provider 2
+    saml_provider2_slo_target_url: SAML Provider 2 Single Log Out URL
+    saml_provider2_cert: SAML Provider 2 X.509 certificate
+    saml_enabled: Enable SAML authentication
 
-    saml_target_url: URL cible du fournisseur d'identité SAML (obligatoire)
-    saml_slo_target_url: URL de déconnexion SAML
+    saml_target_url: Target URL of the SAML Identity Provider (required)
+    saml_slo_target_url: Target URL for SAML Single Log Out
 
-    saml_name_identifier_format: Si renseigné, demande un format spécifique de NameID (UID) au fournisseur d'identité.
+    saml_name_identifier_format: If provided, will request a specific NameID (UID) format from the identity provider.
 
-    saml_cert: Certificat public X.509 du fournisseur d'identité SAML (ceci ou saml_cert_fingerprint est requis)
-    saml_cert_fingerprint: Empreinte du certificat public X.509 du fournisseur d'identité SAML (ceci ou `saml_cert` est requis)
-    saml_cert_fingerprint_algorithm: Algorithme utilisé pour l'empreinte du certificat SAML
-    saml_cert_multi: Certificat X.509 secondaire du fournisseur d'identité SAML. Utile lors des rotations de certificats
+    saml_cert: X.509 public certificate of the SAML identity provider (either this, or saml_cert_fingerprint, are required)
+    saml_cert_fingerprint: The X.509 public certificate fingerprint of the SAML identity provider (either this, or `saml_cert`, are required)
+    saml_cert_fingerprint_algorithm: Which algorithm should be used for SAML certificate fingerprinting?
+    saml_cert_multi: A secondary X.509 public certificate of the SAML identity provider. Useful during certificate rotations
 
-    saml_request_method: Méthode HTTP utilisée pour diriger l'utilisateur vers le fournisseur d'identité
+    saml_request_method: The HTTP method used when directing the user to the Identity Provider
 
-    saml_sp_certificate: Certificat X.509 du fournisseur de service SAML. Utilisé pour signer les messages si activé via les paramètres `saml_*_signed`
-    saml_sp_private_key: Clé privée X.509 du fournisseur de service SAML. Utilisée pour signer les messages si activé via les paramètres `saml_*_signed`
-    saml_authn_requests_signed: Activer la signature des requêtes AuthN par le fournisseur de service
-    saml_want_assertions_signed: Activer la signature des assertions par le fournisseur de service
-    saml_logout_requests_signed: Activer la signature des déconnexions initiées par le fournisseur de service
-    saml_logout_responses_signed: Activer la signature des réponses de déconnexion initiées par le fournisseur d'identité
+    saml_sp_certificate: SAML Service Provider X.509 certificate. Used to sign messages once enabled via the `saml_*_signed` settings"
+    saml_sp_private_key: SAML Service Provider X.509 private key. Used to sign messages once enabled via the `saml_*_signed` settings"
+    saml_authn_requests_signed: Enable Service Provider signatures for AuthNRequest
+    saml_want_assertions_signed: Enable Service Provider signatures for Assertions
+    saml_logout_requests_signed: Enable Service Provider signatures for SP-initiated logout
+    saml_logout_responses_signed: Enable Service Provider signatures for IDP-initiated logout responses
 
-    saml_request_attributes: Liste d'attributs supplémentaires à récupérer auprès du fournisseur de service. `email`, `name`, `first_name` et `last_name` sont toujours récupérés.
-    saml_attribute_statements: "Mappages personnalisés des champs vers leurs attributs SAML sources. Format : `champ:attributSAML1,attributSAML2`."
-    saml_use_attributes_uid: Utiliser l'attribut 'uid' comme identifiant unique de l'utilisateur au lieu du champ `name_id` par défaut.
+    saml_request_attributes: A list of additional attributes which should be fetched from the service provider. `email`, `name`, `first_name`,  and `last_name` are always fetched.
+    saml_attribute_statements: Custom mappings of fields to their source SAML attributes. In the format `field:samlAttr1,samlAttr2`.
+    saml_use_attributes_uid: Use the 'uid' attribute as the unique user identifier instead of the default `name_id` field.
 
-    saml_skip_email_validation: Ignorer la validation syntaxique des emails du fournisseur d'identité SAML
-    saml_validate_email_fields: Si une de ces valeurs est présente dans l'attribut `memberOf`, l'email est considéré comme valide/vérifié
-    saml_default_emails_valid: "Considérer les emails SAML comme vérifiés ? Attention : ne mettre à `true` que si vous faites confiance au fournisseur d'identité pour vérifier la propriété des emails"
+    saml_skip_email_validation: Skip syntax validation of emails from the SAML IDP
+    saml_validate_email_fields: If any of these values are present in the `memberOf` attribute, then the email should be considered valid/verified
+    saml_default_emails_valid: "Consider SAML emails to be verified? Warning: this should only be `true` if you trust the IDP to verify email ownership"
 
-    saml_clear_username: Ignorer le nom d'utilisateur du résultat SAML
-    saml_omit_username: Empêcher l'utilisateur de modifier le nom d'utilisateur SAML lors de l'inscription
-    saml_auto_create_account: Passer la fenêtre d'inscription lors de la création d'un compte SAML
+    saml_clear_username: Ignore the username from the SAML result
+    saml_omit_username: Prevent the user from changing the SAML username during signup
+    saml_auto_create_account: Skip the registration popup during signup with a SAML account
 
-    saml_sync_groups: Synchroniser les groupes SAML avec Discourse
-    saml_groups_fullsync: Les groupes attribués doivent ils être complètement synchronisés (ajout ET suppression) selon le fournisseur d'identité ? Par défaut à false. Si true, `saml_sync_groups_list` et les attributs SAML `groups_to_add`/`groups_to_remove` ne sont pas utilisés.
-    saml_groups_attribute: Attribut SAML contenant les noms de groupes
-    saml_groups_ldap_leafcn: Si votre fournisseur transmet `cn=nomgroupe,cn=groups,dc=exemple,dc=com`, activez pour n'utiliser que `nomgroupe`. Utile pour respecter la longueur standard des groupes Discourse (20 caractères).
-    saml_sync_groups_list: Si renseigné, seuls ces groupes Discourse seront gérés par SAML. Si vide, tous les groupes_to_add/groups_to_remove sont utilisés.
+    saml_sync_groups: Synchronize SAML groups with Discourse
+    saml_groups_fullsync: Should the assigned groups be completely synced including adding AND removing groups based on the IDP? Defaults to false. If set to true, `saml_sync_groups_list` and SAML attribute `groups_to_add`/`groups_to_remove` are not used.
+    saml_groups_attribute: The SAML attribute which contains group names
+    saml_groups_ldap_leafcn: If your IDP transmits `cn=groupname,cn=groups,dc=example,dc=com` you can set this to true to use only `groupname`. This is useful if you want to keep the standard group name length of Discourse (20 characters).
+    saml_sync_groups_list: If provided, these are the only Discourse groups which will have their membership controlled by SAML. If blank, all groups_to_add/groups_to_remove are used.
 
-    saml_user_field_statements: Si renseigné, les champs utilisateur seront définis selon les attributs SAML. Format : `nom_attribut_saml:id_champ_discourse`
+    saml_user_field_statements: If provided, user fields will be set based on SAML attributes. Each entry should be in the format `saml_attribute_name:discourse_field_id`
 
-    saml_sync_email: À chaque connexion, remplacer l'email de l'utilisateur par la valeur SAML. Fonctionne comme le paramètre `auth_overrides_email`, mais spécifique à SAML.
+    saml_sync_email: On every login, override the user's email using the SAML value. Works the same as the `auth_overrides_email` setting, but is specific to SAML logins.
 
-    saml_sync_moderator: Synchroniser le statut modérateur depuis le résultat SAML ?
-    saml_moderator_attribute: Attribut SAML contenant le booléen modérateur
-    saml_sync_admin: Synchroniser le statut administrateur depuis le résultat SAML ?
-    saml_admin_attribute: Attribut SAML contenant le booléen administrateur
+    saml_sync_moderator: Sync moderator status from SAML result?
+    saml_moderator_attribute: The SAML attribute which contains the moderator boolean
+    saml_sync_admin: Sync admin status from SAML result?
+    saml_admin_attribute: The SAML attribute which contains the admin boolean
 
-    saml_sync_trust_level: Définir le niveau de confiance utilisateur depuis le résultat SAML
-    saml_trust_level_attribute: Attribut SAML contenant le niveau de confiance (entier)
+    saml_sync_trust_level: Set user trust level from SAML result
+    saml_trust_level_attribute: The SAML attribute which contains the trust level integer
 
-    saml_sync_locale: Définir la langue utilisateur depuis le résultat SAML
-    saml_locale_attribute: Attribut SAML contenant le nom de la langue
+    saml_sync_locale: Set user locale from SAML result
+    saml_locale_attribute: The SAML attribute which contains the locale name
 
-    saml_forced_domains: Les utilisateurs avec une adresse email sur ces domaines devront utiliser le flux SAML. Ils seront bloqués des autres méthodes de connexion.
+    saml_forced_domains: Users with email addresses on these domains will be forced to use the SAML flow. They will be blocked from other login methods.
 
-    saml_log_auth: Stocker les données brutes d'authentification dans la table `plugin_store_rows` de la base de données.
-    saml_debug_auth: Activer les logs de debug dans `/logs`
-    saml_base_url: Remplacer l'URL de base du fournisseur de service. Par défaut, l'URL du forum.
+    saml_log_auth: Store raw data about authentications in the `plugin_store_rows` database table.
+    saml_debug_auth: Enable debug logging to `/logs`
+    saml_base_url: Override the base URL for the Service Provider. Defaults to the forum base URL.
 
-    saml_can_connect_existing_user: Autoriser les utilisateurs à connecter manuellement leur compte SAML
-    saml_can_revoke: Autoriser les utilisateurs à révoquer manuellement leur compte SAML connecté
+    saml_can_connect_existing_user: Allow users to manually connect their SAML account
+    saml_can_revoke: Allow users to manually revoke their connected SAML account
