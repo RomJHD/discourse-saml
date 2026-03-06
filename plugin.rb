@@ -55,6 +55,10 @@ end
 register_site_setting_area("saml")
 register_admin_config_login_route("saml")
 
+require_relative "lib/discourse_saml/saml_omniauth_strategy"
+require_relative "lib/discourse_saml/saml_replay_cache"
+require_relative "lib/saml_authenticator"
+
 after_initialize do
   if !!GlobalSetting.try("saml_target_url")
     # Hide only the target URL settings when configured via environment variables
@@ -104,30 +108,26 @@ after_initialize do
     flash[:error] = I18n.t("login.use_saml_auth")
     render("failure")
   end
+  
+  # Allow GlobalSettings to override UI-configured titles.
+  # If no overrides are provided, fall back to server-side translations.
+  
+  name = GlobalSetting.try(:saml_title)
+  button_title =
+    GlobalSetting.try(:saml_button_title) || SiteSetting.saml_button_title.presence ||
+      I18n.t("login.saml.title")
+  button_title2 =
+    GlobalSetting.try(:saml_provider2_button_title) ||
+      SiteSetting.saml_provider2_button_title.presence || I18n.t("login.saml.provider2_title")
+  
+  auth_provider icon_setting: :saml_icon,
+                title: button_title,
+                pretty_name: name,
+                authenticator: SamlAuthenticator.new
+  
+  # Register second SAML provider
+  auth_provider icon_setting: :saml_icon,
+                title: button_title2, # overridable title for second button
+                pretty_name: "saml-provider2-title", # unique pretty_name for CSS targeting
+                authenticator: SamlAuthenticator.new.tap { |a| a.define_singleton_method(:name) { "saml_provider2" } }
 end
-
-require_relative "lib/discourse_saml/saml_omniauth_strategy"
-require_relative "lib/discourse_saml/saml_replay_cache"
-require_relative "lib/saml_authenticator"
-
-# Allow GlobalSettings to override UI-configured titles.
-# If no overrides are provided, fall back to server-side translations.
-
-name = GlobalSetting.try(:saml_title)
-button_title =
-  GlobalSetting.try(:saml_button_title) || SiteSetting.saml_button_title.presence ||
-    I18n.t("login.saml.title")
-button_title2 =
-  GlobalSetting.try(:saml_provider2_button_title) ||
-    SiteSetting.saml_provider2_button_title.presence || I18n.t("login.saml.provider2_title")
-
-auth_provider icon_setting: :saml_icon,
-              title: button_title,
-              pretty_name: name,
-              authenticator: SamlAuthenticator.new
-
-# Register second SAML provider
-auth_provider icon_setting: :saml_icon,
-              title: button_title2, # overridable title for second button
-              pretty_name: "saml-provider2-title", # unique pretty_name for CSS targeting
-              authenticator: SamlAuthenticator.new.tap { |a| a.define_singleton_method(:name) { "saml_provider2" } }
