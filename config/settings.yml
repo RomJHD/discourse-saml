@@ -1,27 +1,35 @@
 saml:
   saml_button_title:
+    type: string
     default: "Connectez-vous avec votre compte OVHcloud - Europe"
     area: "saml"
   saml_provider2_button_title:
+    type: string
     default: "Connectez-vous avec votre compte OVHcloud - Canada"
     area: "saml"
   saml_enabled:
+    type: boolean
     default: false
     area: "saml"
   saml_target_url:
+    type: string
     default: ""
     area: "saml"
   saml_slo_target_url:
+    type: string
     default: ""
     area: "saml"
   saml_name_identifier_format:
+    type: string
     default: ""
     area: "saml"
   saml_cert:
+    type: string
     default: ""
     textarea: true
     area: "saml"
   saml_cert_fingerprint:
+    type: string
     default: ""
     area: "saml"
   saml_cert_fingerprint_algorithm:
@@ -34,16 +42,20 @@ saml:
       - SHA512
     area: "saml" 
   saml_provider2_target_url:
+    type: string
     default: ""
     area: "saml"
   saml_provider2_slo_target_url:
+    type: string
     default: ""
     area: "saml"
   saml_provider2_cert:
+    type: string
     default: ""
     textarea: true
     area: "saml"
   saml_cert_multi:
+    type: string
     default: ""
     textarea: true
     area: "saml"
@@ -55,23 +67,29 @@ saml:
       - POST
     area: "saml"
   saml_sp_certificate:
+    type: string
     default: ""
     textarea: true
     area: "saml"
   saml_sp_private_key:
+    type: string
     default: ""
     textarea: true
     area: "saml"
   saml_authn_requests_signed:
+    type: boolean
     default: false
     area: "saml"
   saml_want_assertions_signed:
+    type: boolean
     default: false
     area: "saml"
   saml_logout_requests_signed:
+    type: boolean
     default: false
     area: "saml"
   saml_logout_responses_signed:
+    type: boolean
     default: false
     area: "saml"
   saml_request_attributes:
@@ -83,9 +101,11 @@ saml:
     default: ""
     area: "saml"
   saml_use_attributes_uid:
+    type: boolean
     default: false
     area: "saml"
   saml_skip_email_validation:
+    type: boolean
     default: false
     area: "saml"
   saml_validate_email_fields:
@@ -93,21 +113,27 @@ saml:
     default: ""
     area: "saml"
   saml_default_emails_valid:
+    type: boolean
     default: true
     area: "saml"
   saml_clear_username:
+    type: boolean
     default: false
     area: "saml"
   saml_omit_username:
+    type: boolean
     default: false
     area: "saml"
   saml_auto_create_account:
+    type: boolean
     default: false
     area: "saml"
   saml_sync_groups:
+    type: boolean
     default: false
     area: "saml"
   saml_groups_fullsync:
+    type: boolean
     default: false
     area: "saml"
   saml_groups_attribute:
@@ -115,9 +141,11 @@ saml:
     default: "memberOf"
     area: "saml"
   saml_groups_use_full_name:
+    type: boolean
     default: false
     area: "saml"
   saml_groups_ldap_leafcn:
+    type: boolean
     default: false
     area: "saml"
   saml_sync_groups_list:
@@ -129,30 +157,39 @@ saml:
     default: ""
     area: "saml"
   saml_sync_email:
+    type: boolean
     default: false
     area: "saml"
   saml_sync_moderator:
+    type: boolean
     default: false
     area: "saml"
   saml_moderator_attribute:
+    type: string
     default: "isModerator"
     area: "saml"
   saml_sync_admin:
+    type: boolean
     default: false
     area: "saml"
   saml_admin_attribute:
+    type: string
     default: "isAdmin"
     area: "saml"
   saml_sync_trust_level:
+    type: boolean
     default: false
     area: "saml"
   saml_trust_level_attribute:
+    type: string
     default: "trustLevel"
     area: "saml"
   saml_sync_locale:
+    type: boolean
     default: false
     area: "saml"
   saml_locale_attribute:
+    type: string
     default: "locale"
     area: "saml"
   saml_forced_domains:
@@ -160,24 +197,31 @@ saml:
     default: ""
     area: "saml"
   saml_log_auth:
+    type: boolean
     default: false
     area: "saml"
   saml_debug_auth:
+    type: boolean
     default: false
     area: "saml"
   saml_base_url:
+    type: string
     default: ""
     area: "saml"
   saml_replay_protection_enabled:
+    type: boolean
     default: false
     hidden: true
     area: "saml"
   saml_can_connect_existing_user:
+    type: boolean
     default: false
     area: "saml"
   saml_can_revoke:
+    type: boolean
     default: false
     area: "saml"
   saml_icon:
+    type: string
     default: "user"
     area: "saml"
