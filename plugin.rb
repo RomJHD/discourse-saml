@@ -57,19 +57,19 @@ register_admin_config_login_route("saml")
 
 after_initialize do
   if !!GlobalSetting.try("saml_target_url")
-    # Configured via environment variables. Hide all the site settings
-    # from the UI to avoid confusion
-    saml_site_setting_keys = []
-
-    SiteSetting.defaults.all.keys.each do |k|
-      next if !k.to_s.start_with?("saml_")
-      saml_site_setting_keys << k
-    end
+    # Hide only the target URL settings when configured via environment variables
+    # to avoid confusion. Other settings remain visible for configuration in the UI.
+    hidden_keys = [
+      :saml_target_url,
+      :saml_provider2_target_url,
+      :saml_slo_target_url,
+      :saml_provider2_slo_target_url
+    ]
 
     if SiteSetting.respond_to?(:hidden_settings_provider)
-      register_modifier(:hidden_site_settings) { |hidden| hidden + saml_site_setting_keys }
+      register_modifier(:hidden_site_settings) { |hidden| hidden + hidden_keys }
     else
-      SiteSetting.hidden_settings.concat(saml_site_setting_keys)
+      SiteSetting.hidden_settings.concat(hidden_keys)
     end
   end
 
