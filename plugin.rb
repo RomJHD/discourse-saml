@@ -114,11 +114,12 @@ after_initialize do
   
   name = GlobalSetting.try(:saml_title)
   button_title =
-    GlobalSetting.try(:saml_button_title) || SiteSetting.saml_button_title.presence ||
+    SiteSetting.saml_button_title.presence || GlobalSetting.try(:saml_button_title) ||
       I18n.t("login.saml.title")
   button_title2 =
-    GlobalSetting.try(:saml_provider2_button_title) ||
-      SiteSetting.saml_provider2_button_title.presence || I18n.t("login.saml.provider2_title")
+    SiteSetting.saml_provider2_button_title.presence ||
+      GlobalSetting.try(:saml_provider2_button_title) ||
+      I18n.t("login.saml.provider2_title")
   
   auth_provider icon_setting: :saml_icon,
                 title: button_title,
