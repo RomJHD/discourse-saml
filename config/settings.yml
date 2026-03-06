@@ -1,21 +1,19 @@
 saml:
   saml_button_title:
-    default: "with SAML"
+    default: "Connectez-vous avec votre compte OVHcloud - Europe"
     area: "saml"
   saml_provider2_button_title:
-    default: "with SAML Provider 2"
+    default: "Connectez-vous avec votre compte OVHcloud - Canada"
     area: "saml"
   saml_enabled:
     default: false
     area: "saml"
-
   saml_target_url:
     default: ""
     area: "saml"
   saml_slo_target_url:
     default: ""
     area: "saml"
-
   saml_name_identifier_format:
     default: ""
     area: "saml"
@@ -34,9 +32,7 @@ saml:
       - SHA256
       - SHA384
       - SHA512
-    area: "saml"
-    
-  # SAML Provider 2
+    area: "saml" 
   saml_provider2_target_url:
     default: ""
     area: "saml"
@@ -78,7 +74,6 @@ saml:
   saml_logout_responses_signed:
     default: false
     area: "saml"
-
   saml_request_attributes:
     type: list
     default: ""
@@ -90,7 +85,6 @@ saml:
   saml_use_attributes_uid:
     default: false
     area: "saml"
-
   saml_skip_email_validation:
     default: false
     area: "saml"
@@ -101,7 +95,6 @@ saml:
   saml_default_emails_valid:
     default: true
     area: "saml"
-
   saml_clear_username:
     default: false
     area: "saml"
@@ -111,7 +104,6 @@ saml:
   saml_auto_create_account:
     default: false
     area: "saml"
-
   saml_sync_groups:
     default: false
     area: "saml"
@@ -128,21 +120,17 @@ saml:
   saml_groups_ldap_leafcn:
     default: false
     area: "saml"
-
   saml_sync_groups_list:
     type: list
     default: ""
     area: "saml"
-
   saml_user_field_statements:
     type: list
     default: ""
     area: "saml"
-
   saml_sync_email:
     default: false
     area: "saml"
-
   saml_sync_moderator:
     default: false
     area: "saml"
@@ -167,12 +155,10 @@ saml:
   saml_locale_attribute:
     default: "locale"
     area: "saml"
-
   saml_forced_domains:
     type: list
     default: ""
     area: "saml"
-
   saml_log_auth:
     default: false
     area: "saml"
@@ -186,15 +172,12 @@ saml:
     default: false
     hidden: true
     area: "saml"
-
   saml_can_connect_existing_user:
     default: false
     area: "saml"
-
   saml_can_revoke:
     default: false
     area: "saml"
-
   saml_icon:
     default: "user"
     area: "saml"
