@@ -1,4 +1,4 @@
-fr:
+en:
   login:
     use_saml_auth: "Veuillez utiliser le SSO de l'entreprise pour vous connecter à votre compte."
   site_settings:
