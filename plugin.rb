@@ -54,6 +54,7 @@ end
 
 register_site_setting_area("saml")
 register_admin_config_login_route("saml")
+register_asset "stylesheets/common/discourse-saml-login.scss"
 
 require_relative "lib/discourse_saml/saml_omniauth_strategy"
 require_relative "lib/discourse_saml/saml_replay_cache"

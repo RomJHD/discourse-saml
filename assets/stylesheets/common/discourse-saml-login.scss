@@ -1,0 +1,19 @@
+.d-modal.login-modal,
+.login-page {
+  .btn-social.saml,
+  .btn-social.saml_provider2 {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .btn-social.saml .d-button-label,
+  .btn-social.saml_provider2 .d-button-label {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    text-align: center;
+  }
+}
