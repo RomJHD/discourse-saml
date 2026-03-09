@@ -58,6 +58,8 @@ Add a second provider by configuring these additional environment variables:
   DISCOURSE_SAML_PROVIDER2_SLO_TARGET_URL: https://idpvendor2.com/saml/logout/
 ```
 
+**Note:** The second provider shares most configuration settings with the first provider (such as certificate fingerprint algorithm, request method, signing options, attribute mappings, group sync, and role sync). Only the target URL, certificate, SLO URL, and button title are provider-specific. See the "Provider 2 Settings" section below for details.
+
 #### Using Site Settings (Admin UI)
 
 **By default, only the following settings are visible in Admin UI** under **Settings > SAML** for runtime configuration:
@@ -98,6 +100,19 @@ All SAML plugin settings can be configured using environment variables. Prefix e
 - `DISCOURSE_SAML_PROVIDER2_TARGET_URL`: Target URL for second SAML Identity Provider
 - `DISCOURSE_SAML_PROVIDER2_CERT`: X.509 certificate for second provider
 - `DISCOURSE_SAML_PROVIDER2_SLO_TARGET_URL`: Single Logout URL for second provider
+
+**Important:** Provider 2 only has dedicated settings for the above three parameters plus its button title. **All other settings are shared with Provider 1**, including:
+- Certificate fingerprint algorithm (`DISCOURSE_SAML_CERT_FINGERPRINT_ALGORITHM`)
+- Request method (`DISCOURSE_SAML_REQUEST_METHOD`)
+- Name identifier format (`DISCOURSE_SAML_NAME_IDENTIFIER_FORMAT`)
+- All signing options (`*_SIGNED` settings)
+- Attribute mappings and statements
+- Group synchronization settings
+- Role synchronization settings
+- Email validation settings
+- Debug and logging settings
+
+This means both providers will use the same authentication flow configuration, attribute parsing, and synchronization behavior, but connect to different identity providers.
 
 #### Button Customization
 
