@@ -65,6 +65,7 @@ after_initialize do
   # Only expose essential UI-configurable settings:
   # - Button titles (saml_button_title, saml_provider2_button_title)
   # - Role sync settings (saml_sync_admin, saml_admin_attribute, saml_sync_moderator, saml_moderator_attribute)
+  # - Forced domains (saml_forced_domains)
   # - Debug settings (saml_log_auth, saml_debug_auth)
   hidden_keys = [
     :saml_enabled,
@@ -106,7 +107,6 @@ after_initialize do
     :saml_trust_level_attribute,
     :saml_sync_locale,
     :saml_locale_attribute,
-    :saml_forced_domains,
     :saml_base_url,
     :saml_replay_protection_enabled,
     :saml_can_connect_existing_user,
@@ -142,7 +142,8 @@ after_initialize do
   class ::DiscourseSaml::ForcedSamlError < StandardError
   end
   on(:after_auth) do |authenticator, result|
-    next if authenticator.name == "saml"
+    # Allow both saml and saml_provider2 authenticators
+    next if authenticator.name == "saml" || authenticator.name == "saml_provider2"
     if [result.user&.email, result.email].any? { |e| ::DiscourseSaml.is_saml_forced_domain?(e) }
       raise ::DiscourseSaml::ForcedSamlError
     end
