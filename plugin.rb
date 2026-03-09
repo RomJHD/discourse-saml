@@ -61,21 +61,63 @@ require_relative "lib/discourse_saml/saml_replay_cache"
 require_relative "lib/saml_authenticator"
 
 after_initialize do
-  if !!GlobalSetting.try("saml_target_url")
-    # Hide only the target URL settings when configured via environment variables
-    # to avoid confusion. Other settings remain visible for configuration in the UI.
-    hidden_keys = [
-      :saml_target_url,
-      :saml_provider2_target_url,
-      :saml_slo_target_url,
-      :saml_provider2_slo_target_url
-    ]
+  # Hide most SAML settings from Admin UI - they should be configured via environment variables
+  # Only expose essential UI-configurable settings:
+  # - Button titles (saml_button_title, saml_provider2_button_title)
+  # - Role sync settings (saml_sync_admin, saml_admin_attribute, saml_sync_moderator, saml_moderator_attribute)
+  # - Debug settings (saml_log_auth, saml_debug_auth)
+  hidden_keys = [
+    :saml_enabled,
+    :saml_target_url,
+    :saml_slo_target_url,
+    :saml_name_identifier_format,
+    :saml_cert,
+    :saml_cert_fingerprint,
+    :saml_cert_fingerprint_algorithm,
+    :saml_provider2_target_url,
+    :saml_provider2_slo_target_url,
+    :saml_provider2_cert,
+    :saml_cert_multi,
+    :saml_request_method,
+    :saml_sp_certificate,
+    :saml_sp_private_key,
+    :saml_authn_requests_signed,
+    :saml_want_assertions_signed,
+    :saml_logout_requests_signed,
+    :saml_logout_responses_signed,
+    :saml_request_attributes,
+    :saml_attribute_statements,
+    :saml_use_attributes_uid,
+    :saml_skip_email_validation,
+    :saml_validate_email_fields,
+    :saml_default_emails_valid,
+    :saml_clear_username,
+    :saml_omit_username,
+    :saml_auto_create_account,
+    :saml_sync_groups,
+    :saml_groups_fullsync,
+    :saml_groups_attribute,
+    :saml_groups_use_full_name,
+    :saml_groups_ldap_leafcn,
+    :saml_sync_groups_list,
+    :saml_user_field_statements,
+    :saml_sync_email,
+    :saml_sync_trust_level,
+    :saml_trust_level_attribute,
+    :saml_sync_locale,
+    :saml_locale_attribute,
+    :saml_forced_domains,
+    :saml_base_url,
+    :saml_replay_protection_enabled,
+    :saml_can_connect_existing_user,
+    :saml_can_revoke,
+    :saml_icon
+  ]
 
-    if SiteSetting.respond_to?(:hidden_settings_provider)
-      register_modifier(:hidden_site_settings) { |hidden| hidden + hidden_keys }
-    else
-      SiteSetting.hidden_settings.concat(hidden_keys)
-    end
+  if SiteSetting.respond_to?(:hidden_settings_provider)
+    register_modifier(:hidden_site_settings) { |hidden| hidden + hidden_keys }
+  else
+    SiteSetting.hidden_settings.concat(hidden_keys)
   end
 
   # "SAML Forced Domains" - Prevent login via email
