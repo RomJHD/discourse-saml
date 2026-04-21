@@ -2,7 +2,6 @@
 
 source "https://rubygems.org"
 
-
 gem "macaddr", "1.0.0"
 gem "uuid", "2.3.7"
 gem "ruby-saml", "1.18.0"
